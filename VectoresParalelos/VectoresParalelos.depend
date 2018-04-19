@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1524147965 source:d:\paolinelli\vectoresparalelosenc\vectoresparalelos\main.c
+	<stdio.h>
+	<stdlib.h>
+
