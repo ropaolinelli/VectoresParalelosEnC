@@ -13,16 +13,15 @@ void cargarAlumno ( char [] [50], int [], int [], float[], int [], int[] );
 void buscarLugar (int, int[TAMANIO]);
 float sacarPromedio (int, int);
 
+
 int main()
 {
-    char nombre [TAMANIO] [50]={"Juan","Maria","Alfredo","Jose","Lili"};
+    char nombre [TAMANIO] [50]={"Rocio","Maria","Alfredo","Jose","Lili"};
     int notasUno[TAMANIO]={4, 10, 2, 7, 2};
     int notasDos[TAMANIO]={4, 8, 7, 8, 3};
     float promedios[TAMANIO]={4, 9.5, 4.5, 8.5, 2.5};
     int legajo [TAMANIO]={111, 222, 333, 444, 555};
 
-    cargarAlumno(nombre, notasUno, notasDos, promedios, legajo, TAMANIO);
-    mostrarAlumno(nombre, notasUno, notasDos, promedios, legajo, TAMANIO);
     cargarAlumno(nombre, notasUno, notasDos, promedios, legajo, TAMANIO);
     mostrarAlumno(nombre, notasUno, notasDos, promedios, legajo, TAMANIO);
 
@@ -32,6 +31,7 @@ int main()
 void mostrarAlumno(char nombre [] [50], int primeraNota [], int segundaNota [], float promedio [], int legajos [], int largo [])
 {
     int i;
+
     for(i=0; i<largo; i++)
     {
         printf("\n L: %d, N: %s, N1: %d, N2: %d, P: %.2f", legajos [i], nombre[i], primeraNota[i], segundaNota[i], promedio[i]);
@@ -40,19 +40,26 @@ void mostrarAlumno(char nombre [] [50], int primeraNota [], int segundaNota [], 
 
 void cargarAlumno(char nombre [] [50], int primeraNota [], int segundaNota [], float promedio [], int legajos [], int largo [])
 {
-    int indice;
-    indice=buscarLugar (legajos, largo);
-    legajos[indice]=666;
+   int indice;
+    if(indice>-1)
+    {
+        indice=buscarLugar (legajos, largo);
+        legajos[indice]=666;
+    }
+    else
+    {
+
+    }
 
 }
 
-void buscarLugar (int legajo, int largo)
+ void buscarLugar (int legajos [], int largo)
 {
     int i;
     int indiceRetornado= -1;
-    for(i=0; i<TAMANIO;i++)
+    for(i=0; i<largo; i++)
     {
-        if(lejajo[i]==0)
+        if(lejajos[i]==0)
         {
             indiceRetornado=i;
             break;
