@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define   TAMANIO 5
 #include <string.h>
+#define   TAMANIO 5
 
 void mostrarAlumno( char [] [50], int [], int [], float[], int [], int[] );
 void cargarAlumno ( char [] [50], int [], int [], float[], int [], int[] );
@@ -58,9 +58,6 @@ int main()
         }
     }
     printf("%d\n", comparar);
-
-
-
 
     mostrarAlumno(nombre, notasUno, notasDos, promedios, legajo, TAMANIO);
 
