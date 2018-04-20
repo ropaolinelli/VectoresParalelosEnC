@@ -76,8 +76,6 @@ void mostrarAlumno( char nombres[] [50], int primeraNota[], int segundaNota[], f
         }
     }
 
-
-
 }
 
 void buscarInt (int largo, int enteros[], int cual)
