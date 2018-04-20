@@ -13,7 +13,7 @@ int main()
     char nombre[TAM][20]={"Rocio","Abril","Sofia","Veronica","Marcelo"};
     int nota1[TAM]={10,8,9,6,8};
     int nota2[TAM]={10,3,6,10,9};
-    float promedio[TAM]={10 ,5.5 ,7.5 ,8 ,8.5};
+    float promedio[TAM];//{10 ,5.5 ,7.5 ,8 ,8.5};
     int opcion;
     int index;
     int i;
@@ -78,14 +78,13 @@ do
                 nota2[i]=nota2[j];
                 nota2[j]=auxInt;
 
-                auxFloat= promedio[i];
-                promedio[i]=promedio[j];
-                promedio[j]=auxFloat;
+                //auxFloat= promedio[i];
+                //promedio[i]=promedio[j];
+                //promedio[j]=auxFloat;
 
                 auxLeg=legajo[i];
                 legajo[i]=legajo[j];
                 legajo[j]=auxLeg;
-
 
                 comparar=strcmp(nombre[i],nombre[j]);
                 }
@@ -110,7 +109,7 @@ int buscarLibre(int legajos[], int tam)
     int index=-1;
     if(index>-1)
     {
-        index= buscarLibre (legajos, tam);
+
     }
 
 
@@ -144,7 +143,7 @@ void mostrarAlumnos(int legajos[], char nombres[][20], int nota1[], int nota2[],
             {
                 if(mostrarAlumnos!=0)
                 {
-                    printf("%d %s %d %d %f\n", legajos[i], nombres[i], nota1[i], nota2[i], promedio[i] );
+                    printf("%d %s %d %d %2.f\n", legajos[i], nombres[i], nota1[i], nota2[i], promedio[i] );
                 }
 
             }
