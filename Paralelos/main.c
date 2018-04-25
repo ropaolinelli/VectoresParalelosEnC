@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define TAM 6
+#define TAM 5
 
 int buscarLibre(int[], int);
 void mostrarAlumnos(int[], char[][20], int[], int[], float[], int);
@@ -23,6 +23,7 @@ int main()
     int auxInt;
     float auxFloat;
     int auxLeg;
+
 do
 {
         printf("\n1. ALTAS\n2. MOSTRAR\n3. MODIFICAR\n4.BAJA\n5.ORDENAR (por nombre)\n9. SALIR\nElija una opcion: \n ");
@@ -93,6 +94,9 @@ do
         printf("%d\n", comparar);
         mostrarAlumnos(legajo, nombre, nota1, nota2, promedio, TAM);
         break;
+
+        default:
+            printf("ERROR. Ingrese numero valido");
     }
 
 }
@@ -104,14 +108,19 @@ while(opcion!=9);
     return 0;
 }
 
+
 int buscarLibre(int legajos[], int tam)
 {
     int index=-1;
-    if(index>-1)
+    int i;
+    for (i=0; i<tam; i++) //
     {
-
+        if (legajos[i] == 0)
+        {
+            index = i;
+            break;
+        }
     }
-
 
     return index;
 }
@@ -122,10 +131,23 @@ int cargarAlumno(int legajos[], char nombres[][20], int nota1[], int nota2[], fl
     index = buscarLibre(legajos, tam);
             if(index!=-1)
             {
-                printf("Ingrese datos del alumno:\n legajo: %d, nombre: %c, nota1: %d, nota2: %d");
-                scanf("%d,%c,%d,%d", legajos, nombres, nota1,nota2);
+            printf("\nIngrese su legajo: ");  // Con esta funcion pido que se ingrese un legajo 3 veces.
+            scanf("%d", &legajos[index]);
+
+            printf("Ingrese su nombre: ");
+            fflush(stdin);
+            gets(nombres[index]);
+
+            printf("Ingrese su nota 1: ");
+            scanf("%d", &nota1[index]);
+
+            printf("Ingrese su nota 2: ");
+            scanf("%d", &nota2[index]);
+
+            promedio[index] = calcularPromedio(nota1[index], nota2[index]);
             }
-            return index;
+
+    return index;
 }
 
 
@@ -134,7 +156,9 @@ float calcularPromedio(int nota1, int nota2)
     float promedio;
     promedio = (float)(nota1+nota2)/2;
     return promedio;
+
 }
+
 
 void mostrarAlumnos(int legajos[], char nombres[][20], int nota1[], int nota2[], float promedio[], int tam)
 {
@@ -143,7 +167,7 @@ void mostrarAlumnos(int legajos[], char nombres[][20], int nota1[], int nota2[],
             {
                 if(mostrarAlumnos!=0)
                 {
-                    printf("%d %s %d %d %2.f\n", legajos[i], nombres[i], nota1[i], nota2[i], promedio[i] );
+                    printf("%d %s %d %d \n", legajos[i], nombres[i], nota1[i], nota2[i], promedio[i] );
                 }
 
             }
