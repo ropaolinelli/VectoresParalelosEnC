@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define TAM 5
+#define TAM 6
 
 int buscarLibre(int[], int);
 void mostrarAlumnos(int[], char[][20], int[], int[], float[], int);
@@ -91,7 +91,7 @@ do
                 }
             }
         }
-        printf("%d\n", comparar);
+        //printf("%d\n", comparar);
         mostrarAlumnos(legajo, nombre, nota1, nota2, promedio, TAM);
         break;
 
@@ -101,9 +101,6 @@ do
 
 }
 while(opcion!=9);
-
-
-
 
     return 0;
 }
@@ -129,9 +126,9 @@ int cargarAlumno(int legajos[], char nombres[][20], int nota1[], int nota2[], fl
 {
     int index ;
     index = buscarLibre(legajos, tam);
-            if(index!=-1)
+            if(index!=1)
             {
-            printf("\nIngrese su legajo: ");  // Con esta funcion pido que se ingrese un legajo 3 veces.
+            printf("\nIngrese su legajo: ");
             scanf("%d", &legajos[index]);
 
             printf("Ingrese su nombre: ");
@@ -144,7 +141,9 @@ int cargarAlumno(int legajos[], char nombres[][20], int nota1[], int nota2[], fl
             printf("Ingrese su nota 2: ");
             scanf("%d", &nota2[index]);
 
-            promedio[index] = calcularPromedio(nota1[index], nota2[index]);
+            promedio[index]=calcularPromedio(nota1[index],nota2[index]);
+            printf("\nEl promedio del alumno es: %2.5f\n",promedio[index]);
+
             }
 
     return index;
@@ -154,7 +153,7 @@ int cargarAlumno(int legajos[], char nombres[][20], int nota1[], int nota2[], fl
 float calcularPromedio(int nota1, int nota2)
 {
     float promedio;
-    promedio = (float)(nota1+nota2)/2;
+    promedio =(float)(nota1+nota2)/2;
     return promedio;
 
 }
@@ -167,7 +166,7 @@ void mostrarAlumnos(int legajos[], char nombres[][20], int nota1[], int nota2[],
             {
                 if(mostrarAlumnos!=0)
                 {
-                    printf("%d %s %d %d \n", legajos[i], nombres[i], nota1[i], nota2[i], promedio[i] );
+                    printf("%d %s %d %d %2.f \n", legajos[i], nombres[i], nota1[i], nota2[i], promedio[i] );
                 }
 
             }
