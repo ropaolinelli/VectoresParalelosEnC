@@ -171,5 +171,5 @@ void mostrarAlumnos(int legajos[], char nombres[][20], int nota1[], int nota2[],
                 }
 
             }
-
+// te amo yo tu admirador sece
 }
