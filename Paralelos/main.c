@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define TAM 6
+#define TAM 8
 
 int buscarLibre(int[], int);
 void mostrarAlumnos(int[], char[][20], int[], int[], float[], int);
@@ -164,9 +164,10 @@ void mostrarAlumnos(int legajos[], char nombres[][20], int nota1[], int nota2[],
     int i;
     for(i=0; i<tam; i++)
             {
-                if(mostrarAlumnos!=0)
+                if(legajos[i]!=0)
                 {
-                    printf("%d %s %d %d %2.f \n", legajos[i], nombres[i], nota1[i], nota2[i], promedio[i] );
+                    promedio[i]=calcularPromedio(nota1[i],nota2[i]);
+                    printf("%d %s %d %d %.2f \n", legajos[i], nombres[i], nota1[i], nota2[i], promedio[i] );
                 }
 
             }
